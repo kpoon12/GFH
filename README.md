@@ -1,1 +1,4 @@
-"# GFH" 
+"# GFH"
+
+npm install
+RUN.bat
