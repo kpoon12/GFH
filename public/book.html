@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>God Family Hymnal</title>
+
+    <!-- Chinese_to_English_Hymnal_Finder references -->
+    <link href="css/default.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/datagfh.js"></script>
+	<script type="text/javascript" src="scripts/dataindex.js"></script>
+    <script type="text/javascript" src="scripts/default.js"></script>
+</head>
+<body class="win-type-body">
+    <div>
+	    <div id="Menu">
+            <ul>
+                <li><img id="btFind" class="BtnS" src="images\find.png" /></li>
+                <li><img id="btBookmarks" class="BtnS" src="images\bookmarks.png" /></li>
+                <li><img id="btSetting" class="BtnS" src="images\setting.png" /></li>
+                <li><img id="btPage" class="BtnS" src="images\page.png" /></li>
+                <li><img id="btBook" class="BtnS" src="images\library.png" /></li>
+                <li><img id="btDisplay" class="BtnS" src="images\characters.png" /></li>
+            </ul>
+        </div>
+		
+        <div id="song">
+            <table id="Title">
+                <tr>
+                    <td>
+                        <div id="OutTitle1"></div>
+                        <div id="OutTitle2"></div>
+                    </td>
+                </tr>
+            </table>
+            <div id="Output2" class="Content" style="position:fixed; visibility:hidden; left:10px"></div>
+            <div id="Output1" class="Content" style="position:fixed; left:10px " onscroll="document.getElementById('Output2').scrollTop = document.getElementById('Output1').scrollTop"></div>
+            <input type="button" id="btBackPage" class="BtnS" style="position:fixed; width:50px; bottom:50px; height:50px; border-radius:25px; font-weight:bold; font-size:x-large " value="◄" />
+            <input type="button" id="btNextPage" class="BtnS" style="position:fixed; width:50px; bottom:50px; right:0px; height:50px; border-radius:25px ; font-weight:bold; font-size:x-large"  value="►" />
+        </div>
+
+        <div id="TitleBack">
+            <ul>
+                <li><img id="btBack" class="BtnS" src="images\back.png" /></li>
+                <li><input type="button" id="numOnly" style="width:150px; height:40px; margin:5px" /></li>
+            </ul>
+        </div>
+
+        <div id="Setting" style="visibility:hidden">
+            <table>
+                <tr>
+                    <td><h2>Sort by</h2></td>
+                </tr>
+                <tr>
+                    <td><input type="radio" name="Lang" id="C_E" value="1" />C,E  <input type="radio" name="Lang" id="E_C" value="2" />E,C</td>
+                </tr>
+                <tr>
+                    <td><h2>Font size</h2></td>
+                </tr>
+                <tr>
+                    <td><input type="text" id="fontSize" value=""></td>
+                </tr>
+                <tr>
+                    <td>5<input type="range" id="fontrange" name="rangeInput" min="5" max="60" onchange="updateTextInput(this.value);">60</td>
+                </tr>
+                <tr>
+                    <td><h2>Color</h2></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="Night" value="1" />Night Mode<br /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><h2>MP3 local</h2></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type=radio name="Local" id="mp3SD" value="2" />OFF</td>
+                </tr>
+                <tr>
+                    <td><input type=radio name="Local" id="mp3NET" value="0" />ON</td>
+                </tr>
+                <tr style="visibility:hidden">
+                    <td><input type=radio name="Local" id="mp3HD" value="1" />Local</td>
+                </tr>
+
+                <tr style="visibility:hidden">
+                    <td><input type=radio name="Local" id="mp3SS" value="3" /><input type=text id="folder" style="width:250px" /></td>
+                </tr>
+                <tr style="visibility:hidden">
+                    <td><button id="info" style="width:150px; height:50px">Find GFH Folder</button></td>
+                </tr>
+                </table>
+        </div>
+
+        <div id="search" style="visibility:hidden">
+            <table>
+                <tr>
+                    <td><img id="btnback" class="BtnS" src="images\back.png" /></td>
+                    <td>
+                        <input type=radio name="SearchBy" id="searchByTitle" value="0" />Title<br />
+                        <input type=radio name="SearchBy" id="searchByContent" value="1" checked />Content<br />
+                    </td>
+                    <td><input id="SearchText" type="text" /></td>
+                    <td><img id="btnsearch" class="BtnS" src="images\find.png" /></td>
+                    <td><h5 id="Count"></h5></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="results" style="visibility:hidden;">
+        </div>
+
+        <audio controls="controls" id="AudioLeft" style="position:fixed; bottom:20px; right:0px" />
+
+    </div>
+</body>
+</html>

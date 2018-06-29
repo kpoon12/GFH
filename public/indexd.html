@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="scripts/jquery-1.8.2.js" type="text/javascript"></script>
+        <title>GFH</title>
+    </head>
+    <body>
+        <div class="app">
+            <div class="mobile-nav">
+                <div class="menu-btn" id="menu-btn">
+                    <div></div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="responsive-menu">
+                    <ul>
+                        <li id="book1"><button>神家詩歌</button></li>
+                        <li><span></span></li>
+                        <li id="book12"><button>神家詩歌 12 PDF</button></li>
+                        <li><span></span></li>
+                        <li id="book13"><button>神家詩歌 13 PDF</button></li>
+                        <li><span></span></li>
+                        <li id="book14"><button>神家詩歌 14 PDF</button></li>
+                        <li><span></span></li>
+                        <li id="book15"><button>神家詩歌 15 PDF</button></li>
+                        <li><span></span></li>
+                        <li id="book16"><button>神家詩歌 16 PDF</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <iframe id="iview" style="border:hidden"></iframe>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+    </body>
+</html>

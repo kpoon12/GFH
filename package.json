@@ -1,0 +1,11 @@
+{
+  "name": "GFH",
+  "version": "7.0.0",
+  "description": "GFH",
+  "author": "Edward Poon",
+  "devDependencies": {
+    "express" : "^4.16.3",
+    "optimist":"^0.6.1",
+    "socket.io": "^2.1.1"
+  }
+}
