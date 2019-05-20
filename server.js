@@ -1,29 +1,26 @@
-var socketio = require('socket.io');
+var connect = require('connect'),
+serveStatic = require('serve-static');
 
-var express = require('express')
-    , app = express()
-    , server = require('http').createServer(app)
-    , path = require('path')
-    , io = require('socket.io').listen(server)
-    , spawn = require('child_process').spawn;
+var http = require('http');
+ 
+var app = connect();
+ 
+// gzip/deflate outgoing responses
+var compression = require('compression');
+app.use(compression());
+ 
+// store session state in browser cookie
+var cookieSession = require('cookie-session');
+app.use(cookieSession({
+    keys: ['secret1', 'secret2']
+}));
+ 
+// parse urlencoded request bodies into req.body
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended: false}));
+ 
+// respond to all requests
+app.use(serveStatic("./public"));
 
-// all environments
-app.set('port', process.env.TEST_PORT || 5000);
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(express.static(path.join(__dirname, 'public')));
-
-var port = "5000";
-var host = "128.1.3.21";
-
-server.listen(app.get('port'), function () {
-    console.log('Server is running on port ' + app.get('port'));
-});
-
-console.log('');
-console.log('Nodejs Version: ', process.version);
-//console.log('     Listening: http://', host, ':', port);
-console.log('    Socket.IO : v', socketio.version);
-console.log('');
+//create node.js http server and listen on port
+http.createServer(app).listen(3000);
